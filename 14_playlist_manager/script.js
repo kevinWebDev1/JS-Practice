@@ -50,7 +50,17 @@ const playlist = [
       console.log(`"${removedSongName}" removed from playlist`);
     }
   };
+
+  const findSong = songName => {
+    let found = playlist.find(song => song.song === songName)
+    if(found) {
+        console.log(`${songName} Exists in playlist=>`);
+        return found;
+    } else {
+        return `${songName} doesn't exits in Playlist`;
+    }
+  }
   
   handleOverflow();
   listAllSongs();
-  
+  console.log(findSong("Despacito"));
