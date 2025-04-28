@@ -1,14 +1,12 @@
 //✅ 1. Create an Array called todos
-const todos = [
-    {id: 1, task: "Go to gym", completed: true } 
-]
+const todos = []
 
 // ✅ 2. Functions to create:
 // addTodo(task) → Add a new todo with completed: false.
 // completeTodo(id) → Mark a todo as completed.
 // deleteTodo(id) → Delete a todo by id.
 // listTodos() → Print all todos showing (✔️ / ❌) based on completed status.
-let idCounter = 2;
+let idCounter = 1;
 const addTodo = (task) => {
     todos.push({ id: idCounter++, task: task, completed: false });
 };
