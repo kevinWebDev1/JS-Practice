@@ -1,0 +1,8 @@
+{
+    "codeium.aggressiveShutdown": false,
+    "codeium.disableSupercomplete": false,
+    "codeium.enableConfig": {
+        
+        "*": true
+    }
+}
