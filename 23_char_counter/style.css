@@ -1,0 +1,14 @@
+#textarea {
+
+}
+#count {
+
+}
+#bar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 25px;
+    padding: 2px 5px;
+    background: red;
+}
