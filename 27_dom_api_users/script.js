@@ -10,12 +10,12 @@ fetchBtn.addEventListener("click", () => {
 });
 
 function userGetter() {
-    loader.style.display = "block";
+    loader.classList.remove("hidden");
     userList.innerHTML = "";
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      loader.style.display = "none";
+      loader.classList.add("hidden");
       const userHTML = data.results.map(user => {
         return `
         <div class="card">
