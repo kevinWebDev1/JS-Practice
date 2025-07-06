@@ -1,0 +1,456 @@
+@import url("https://fonts.googleapis.com/css2?family=Bangers&family=Carter+One&family=Karla:ital,wght@0,200..800;1,200..800&family=Luckiest+Guy&family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-family: "Rubik", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 300; /* value from 300 to 900 */
+  font-style: normal;
+  /* background: linear-gradient(to right, #57d6d4, #f71eec); */
+
+  /* --angle: 45deg; 
+background: linear-gradient(var(--angle), oklch(63% 0.18 14.2), oklch(54.9% 0.19 15.9), oklch(41.6% 0.153 336), oklch(30% 0.102 334)); */
+  --angle: 45deg;
+  background: linear-gradient(
+    var(--angle),
+    oklab(84.8% 0.012 0.173),
+    oklab(68% 0.175 0.116),
+    oklab(52.6% 0.2 0.065),
+    oklab(42.4% 0.162 0.019)
+  );
+}
+.loader {
+  border: 2px solid red;
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 10px solid #6a5acd;
+  border-top-color: transparent;
+  background: transparent;
+  position: relative;
+  overflow: hidden;
+  z-index: 0;
+  -webkit-animation: spin 1s linear infinite;
+  animation: spin 1s linear infinite;
+  z-index: 100px;
+}
+
+@-webkit-keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+@keyframes spin {
+  0% {
+    -webkit-transform: rotate(0deg);
+    transform: rotate(0deg);
+  }
+  100% {
+    -webkit-transform: rotate(360deg);
+    transform: rotate(360deg);
+  }
+}
+
+.weather-card {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  box-shadow: -48px 16px 96px rgba(0, 0, 0, 0.1);
+  border-radius: 20px;
+  padding: 10px 20px;
+  min-width: 400px;
+  max-height: 600px;
+  transition: opacity 0.5s ease;
+  animation: fadeIn 0.5s ease forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+/*
+================================
+        HEADER SECTION   
+================================
+*/
+.header {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0 20px 20px 20px;
+}
+
+.location-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px;
+}
+.location-container .icon {
+  width: 15px;
+  height: 15px;
+}
+.location-container .city-name {
+  font-family: "Karla", sans-serif;
+  font-size: 18px;
+  font-weight: 900;
+  animation: typewritter 4s steps(80) infinite;
+  background: linear-gradient(90deg, hsl(0, 0%, 5%), hsl(0, 0%, 25%));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  transition: all 0.3s ease-in-out;
+}
+
+.search-box {
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+  background: transparent;
+  /* border: 2px solid red; */
+}
+
+.search-input {
+  width: 100%;
+  height: 100%;
+  background: transparent;
+  outline: none;
+  padding: 10px 20px;
+  border: 2px solid hsla(0, 0%, 20%, 0.8);
+
+  border-right: none;
+  border-radius: 20px 0 0 20px;
+  cursor: pointer;
+}
+.search-input::placeholder {
+  font-family: "Luckiest Guy", sans-serif;
+  font-weight: 700;
+  color: hsl(0, 0%, 15%);
+}
+
+.search-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 45px;
+  height: 40px;
+  margin-left: -5px;
+  border-radius: 50%;
+  color: hsl(0, 0%, 90%);
+  background-color: hsl(0, 0%, 15%);
+  border: 2px solid hsl(0, 0%, 19%);
+  cursor: pointer;
+  transition: background-color 0.2s ease-in-out;
+  transition: color 0.2s ease-in-out;
+}
+
+.search-btn:hover {
+  color: hsla(0, 0%, 10%);
+  background: transparent;
+}
+
+.search-btn::after {
+  content: "";
+  position: absolute;
+  left: -7px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 60px;
+  height: 50px;
+  background-color: transparent;
+  border-radius: 50%;
+  box-shadow: -2px 0 0 0 hsla(0, 0%, 20%, 0.8);
+  z-index: 1;
+}
+
+/*
+================================
+        ERROR SECTION   
+================================
+*/
+
+.error-container {
+  /* border: 2px solid red; */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 20px;
+}
+.error-img {
+  width: 100%;
+  margin-top: -20px;
+  object-fit: cover;
+}
+.error-container .error {
+  font-family: "Rubik", sans-serif;
+  font-size: 60px;
+  font-weight: 700;
+  background: linear-gradient(90deg, hsl(0, 0%, 5%), hsl(0, 0%, 25%));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  margin-top: -35px;
+}
+.error-container .error-msg {
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  font-style: normal;
+  background: linear-gradient(90deg, hsl(0, 0%, 5%), hsl(0, 0%, 25%));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+
+/*
+================================
+        FOOTER SECTION   
+================================
+*/
+
+.w-container {
+  display: flex;
+  flex-direction: column;
+  /* border: 2px solid purple; */
+  gap: 15px;
+}
+.w-container .img-box {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /* border: 2px solid rgb(238, 255, 0); */
+  height: 140px;
+  width: 400px;
+}
+.live-w-img {
+  position: absolute;
+  top: -1px;
+  width: 400px;
+  transition: transform 0.5s ease-in-out;
+}
+.live-w-img:hover {
+  transform: scale(1.1);
+}
+.w-condition {
+  font-family: "Bangers", sans-serif;
+  letter-spacing: 2px;
+  font-size: 22px;
+  font-weight: 700;
+  font-style: normal;
+  text-align: center;
+
+  background: linear-gradient(90deg, hsl(0, 0%, 5%), hsl(0, 0%, 25%));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.live-w-details {
+  margin-top: -20px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  /* border: 2px solid red; */
+}
+.current-weather {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  /* border: 2px solid rgb(1, 14, 53); */
+}
+
+.w-temp {
+  font-family: "Luckiest Guy", sans-serif;
+  font-size: 70px;
+  font-weight: 500; /* value from 300 to 900 */
+  /* font-style: italic; */
+
+  background: linear-gradient(90deg, hsl(0, 0%, 5%), hsl(0, 0%, 25%));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+}
+.live-date {
+  font-family: "Rubik", sans-serif;
+  font-weight: 700;
+  font-style: normal;
+  font-size: 16px;
+  color: hsl(0, 0%, 15%);
+  margin-top: -10px;
+}
+
+.live-w-stats {
+  display: flex;
+  justify-content: space-evenly;
+  gap: 20px;
+  /* border: 2px solid greenyellow; */
+}
+.humidity-cont,
+.wind-cont {
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: "Rubik", sans-serif;
+  font-size: 16px;
+  font-weight: 700;
+  font-style: normal;
+  border-radius: 10px;
+  flex: 1;
+  box-shadow: rgba(17, 17, 26, 0.03) 0px 4px 16px,
+    rgba(17, 17, 26, 0.03) 0px 8px 24px, rgba(17, 17, 26, 0.03) 0px 16px 56px,
+    rgba(255, 255, 255, 0.2) -3px -3px 6px 1px inset;
+
+  background: linear-gradient(90deg, hsl(0, 0%, 15%), hsl(0, 0%, 35%));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  transition: box-shadow 0.3s ease, transform 0.2s ease-in;
+}
+.humidity-cont:hover,
+.wind-cont:hover {
+  box-shadow: rgba(155, 169, 182, 0.6) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.3) -3px -3px 6px 1px inset;
+  transform: scale(1.05);
+}
+.humidity-cont p {
+}
+.humidity-cont .icon,
+.wind-cont .icon {
+  color: hsl(0, 0%, 90%);
+}
+.humidity {
+}
+
+.wind-cont {
+}
+.wind-cont p {
+}
+.wind-cont .icon {
+  color: #fff;
+}
+
+.wind-speed {
+}
+
+.forecast-container {
+  display: flex;
+  align-items: center;
+  /* border: 2px solid rgb(150, 0, 25); */
+  /* overflow: hidden; */
+  height: 70px;
+  gap: 5px;
+  flex-wrap: nowrap;
+  margin-bottom: 10px;
+}
+.forecast-details {
+  padding: 5px 10px;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 10px;
+
+  box-shadow: rgba(155, 169, 182, 0.2) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.18) -3px -3px 6px 1px inset;
+  gap: 1px;
+  flex: 1;
+
+  font-family: "Rubik", sans-serif;
+  font-size: 10px;
+  font-weight: 500;
+  font-style: normal;
+  background: linear-gradient(90deg, hsl(0, 0%, 5%), hsl(0, 0%, 25%));
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+
+  transition: box-shadow 0.3s ease, transform 0.2s ease-in;
+}
+
+.forecast-details:hover {
+  box-shadow: rgba(155, 169, 182, 0.8) 3px 3px 6px 0px inset,
+    rgba(255, 255, 255, 0.4) -3px -3px 6px 1px inset;
+  transform: scale(1.05);
+}
+
+.f-date {
+}
+.f-img-box {
+  width: 100%;
+  height: 50px;
+  margin: -7px 0;
+}
+.f-img-box .f-img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.f-temp {
+  /* margin-top: -10px; */
+}
+
+/*
+================================
+        Universal SECTION   
+================================
+*/
+.main-h1 {
+  font-size: 30px;
+  font-weight: normal;
+  font-family: sans-serif;
+  color: #000;
+}
+
+.sub-h3 {
+  font-size: 18px;
+  font-weight: normal;
+  font-family: sans-serif;
+  color: #000;
+}
+
+.hidden {
+  display: none;
+}
+
+/*
+box-shaddow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+*/
+/*
+================================
+        ANIMATION EFFECTS   
+================================
+*/
+@keyframes typewritter {
+  from {
+    width: 0;
+  }
+  to {
+    width: 100%;
+  }
+}
+@keyframes scale {
+  from {
+    transform: scale(0);
+  }
+  to {
+    transform: scale(1);
+  }
+}
