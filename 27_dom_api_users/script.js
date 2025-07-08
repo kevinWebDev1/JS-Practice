@@ -2,7 +2,7 @@ const userList = document.querySelector("#userList");
 const fetchBtn = document.querySelector("#fetch");
 const loader = document.querySelector("#loader");
 
-const url = "https://randomuser.me/api/?results=5";
+const url = "https://randomuser.me/api/?results=4";
 
 fetchBtn.addEventListener("click", () => {
     userList.innerHTML = "<p>Loading...</p>";
@@ -23,6 +23,7 @@ function userGetter() {
                 <img src="${user.picture.medium}">
             </div>
             <div class="profile-details">
+                <h1 id="h-title">About me</h1>
                 <p id="name">Name: ${user.name.title} ${user.name.first} ${user.name.last}</p>
                 <p id="age">Age: ${user.dob.age}</p>
                 <p id="email">Email: ${user.email}</p>

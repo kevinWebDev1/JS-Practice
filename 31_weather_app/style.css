@@ -39,7 +39,7 @@ background: linear-gradient(var(--angle), oklch(63% 0.18 14.2), oklch(54.9% 0.19
   border: 10px solid #6a5acd;
   border-top-color: transparent;
   background: transparent;
-  position: relative;
+  /* position: relative; */
   overflow: hidden;
   z-index: 0;
   -webkit-animation: spin 1s linear infinite;

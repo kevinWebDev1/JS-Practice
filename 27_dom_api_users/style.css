@@ -2,27 +2,29 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  background: #e6e4d5;
 }
 #userList {
     display: flex;
     flex-wrap: wrap;
-    justify-content: space-evenly;
+    justify-content: start;
 }
 .card {
-    max-width: 400px;
-  height: 180px;
-  display: grid;
-  grid-template-columns: 1fr 2fr;
+  max-width: 300px;
+  height: 400px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin: 10px;
-  padding: 5px;
-  background-image: linear-gradient(to bottom left, #e0e4e5, #f2f6f9);
+  row-gap: 10;
+  background-image: #f4f4ea;
   box-shadow: inset -2px 2px hsl(0 0 100% / 1),
     -20px 20px 40px hsl(0 0 0 / 0.25);
+    padding: 20px;
 }
 .card .profile {
-  width: 100px;
-  align-self: center;
-  border-radius: 50%;
+  width: 260px;
+  height: 260px;
   overflow: hidden;
 }
 .profile img {
@@ -31,15 +33,24 @@
   object-fit: cover;
   display: block;
 }
+#h-title {
+  font-family: "Lato", sans-serif;
+  font-weight: 600;
+  letter-spacing: 1px;
+  text-align: start;
+  font-size: 25px;
+  margin: 15px 0;
+}
 .profile-details {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   font-family: "Lato", sans-serif;
   font-size: 13px;
   font-weight: 500;
   letter-spacing: 1px;
+  line-height: 20px;
   padding: 10px;
+
 }
 
 .loader {
