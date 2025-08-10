@@ -23,5 +23,12 @@ function countUniqueValues(arr) {
         }
     }    
     return count;
+}
+
+// Time complexcity = O(n)
+// space complexcity = O()
+
+console.log(countUniqueValues([1,1,1,2,2,3]));
+console.log(countUniqueValues([1,2,3,4,4,4,7,7,12,12,13]));
 console.log(countUniqueValues([]));
 console.log(countUniqueValues([1]));
